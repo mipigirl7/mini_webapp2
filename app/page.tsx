@@ -177,7 +177,7 @@ function calculateScores(
 function ScoreBar({ score }: { score: number }) {
   const pct = Math.min(score, 100);
   const color =
-    score >= 80 ? 'bg-emerald-500' : score >= 65 ? 'bg-indigo-500' : 'bg-gray-300';
+    score >= 80 ? 'bg-orange-500' : score >= 65 ? 'bg-teal-500' : 'bg-gray-300';
   return (
     <div className="w-full bg-gray-100 rounded-full h-2 mt-1">
       <div className={`${color} h-2 rounded-full`} style={{ width: `${pct}%` }} />
@@ -206,8 +206,8 @@ function SelectCard<T extends string>({
       onClick={() => onClick(value)}
       className={`w-full text-left px-4 py-3 rounded-xl border-2 transition-all ${
         selected
-          ? 'border-indigo-500 bg-indigo-50 text-indigo-700'
-          : 'border-gray-100 bg-white hover:border-indigo-200 text-gray-700'
+          ? 'border-teal-500 bg-teal-50 text-teal-700'
+          : 'border-gray-100 bg-white hover:border-teal-200 text-gray-700'
       }`}
     >
       <div className="flex items-center gap-2">
@@ -236,13 +236,13 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-slate-50">
       {/* Header */}
-      <div className="bg-gradient-to-br from-indigo-600 via-indigo-700 to-purple-700 text-white">
+      <div className="bg-gradient-to-br from-emerald-600 via-teal-700 to-cyan-800 text-white">
         <div className="max-w-4xl mx-auto px-6 py-12">
-          <div className="text-indigo-200 text-xs font-semibold mb-3 tracking-widest uppercase">
+          <div className="text-emerald-200 text-xs font-semibold mb-3 tracking-widest uppercase">
             Portfolio Project · 데이터 기반 의사결정 모델
           </div>
           <h1 className="text-4xl font-bold mb-3">🏫 Campus Partner Finder</h1>
-          <p className="text-indigo-100 text-base leading-relaxed max-w-2xl">
+          <p className="text-teal-100 text-base leading-relaxed max-w-2xl">
             학생회 대외협력국장으로{' '}
             <span className="font-bold text-white">100개 제휴처를 직접 발굴</span>한 경험을
             기반으로, 행사 유형·예산·타겟 특성에 따라 최적 제휴 업종과 마케팅 전략을
@@ -326,16 +326,16 @@ export default function Home() {
 
           <button
             onClick={handleAnalyze}
-            className="mt-6 w-full bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white font-bold py-4 rounded-xl transition-all shadow-md hover:shadow-lg text-base"
+            className="mt-6 w-full bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white font-bold py-4 rounded-xl transition-all shadow-md hover:shadow-lg text-base"
           >
             제휴처 적합도 분석하기 →
           </button>
         </div>
 
         {/* Score Model */}
-        <div className="bg-indigo-50 border border-indigo-100 rounded-xl px-5 py-4 mb-6">
-          <div className="text-sm font-bold text-indigo-700 mb-1">📊 적합도 계산 모델</div>
-          <code className="text-sm text-indigo-600">
+        <div className="bg-teal-50 border border-teal-100 rounded-xl px-5 py-4 mb-6">
+          <div className="text-sm font-bold text-teal-700 mb-1">📊 적합도 계산 모델</div>
+          <code className="text-sm text-teal-600">
             적합도 = 기본점수 (38~50) + 행사 가중치 (0~25) + 타겟 가중치 (0~15) + 예산 적합도 (0~10)
           </code>
         </div>
@@ -348,7 +348,7 @@ export default function Home() {
               {[eventLabels[eventType], budgetLabels[budget], targetLabels[target]].map((tag) => (
                 <span
                   key={tag}
-                  className="text-xs bg-indigo-100 text-indigo-700 font-semibold px-2 py-0.5 rounded-full"
+                  className="text-xs bg-teal-100 text-teal-700 font-semibold px-2 py-0.5 rounded-full"
                 >
                   {tag}
                 </span>
@@ -381,9 +381,9 @@ export default function Home() {
                       <div
                         className={`text-3xl font-bold ${
                           result.total >= 80
-                            ? 'text-emerald-600'
+                            ? 'text-orange-500'
                             : result.total >= 65
-                            ? 'text-indigo-600'
+                            ? 'text-teal-600'
                             : 'text-gray-600'
                         }`}
                       >
@@ -406,7 +406,7 @@ export default function Home() {
                       <div className="bg-white rounded-lg p-2">
                         <div
                           className={`text-lg font-bold ${
-                            result.eventBonus > 0 ? 'text-indigo-600' : 'text-gray-300'
+                            result.eventBonus > 0 ? 'text-teal-600' : 'text-gray-300'
                           }`}
                         >
                           +{result.eventBonus}
@@ -443,7 +443,7 @@ export default function Home() {
 
                   {/* Strategy */}
                   <div className="flex items-start gap-2">
-                    <span className="text-indigo-500 font-bold mt-0.5">→</span>
+                    <span className="text-orange-500 font-bold mt-0.5">→</span>
                     <p className="text-sm text-gray-600">
                       <span className="font-semibold text-gray-700">추천 전략: </span>
                       {result.strategy}
@@ -456,7 +456,7 @@ export default function Home() {
             {/* All Results Table */}
             <button
               onClick={() => setShowAll(!showAll)}
-              className="w-full py-3 border-2 border-gray-200 rounded-xl text-gray-500 font-medium hover:border-indigo-300 hover:text-indigo-600 transition-all mb-4 text-sm"
+              className="w-full py-3 border-2 border-gray-200 rounded-xl text-gray-500 font-medium hover:border-teal-300 hover:text-teal-600 transition-all mb-4 text-sm"
             >
               {showAll
                 ? '▲ 접기'
@@ -471,7 +471,7 @@ export default function Home() {
                       <th className="text-left px-4 py-3 text-gray-500 font-semibold text-xs">순위</th>
                       <th className="text-left px-4 py-3 text-gray-500 font-semibold text-xs">업종</th>
                       <th className="text-center px-3 py-3 text-gray-500 font-semibold text-xs">기본</th>
-                      <th className="text-center px-3 py-3 text-indigo-500 font-semibold text-xs">행사</th>
+                      <th className="text-center px-3 py-3 text-teal-500 font-semibold text-xs">행사</th>
                       <th className="text-center px-3 py-3 text-purple-500 font-semibold text-xs">타겟</th>
                       <th className="text-center px-3 py-3 text-emerald-500 font-semibold text-xs">예산</th>
                       <th className="text-center px-3 py-3 text-gray-700 font-semibold text-xs">합계</th>
@@ -482,7 +482,7 @@ export default function Home() {
                       <tr
                         key={result.business.id}
                         className={`border-b border-gray-50 ${
-                          idx < 3 ? 'bg-indigo-50/40' : ''
+                          idx < 3 ? 'bg-teal-50/40' : ''
                         }`}
                       >
                         <td className="px-4 py-3 text-gray-500 font-medium text-sm">
@@ -493,7 +493,7 @@ export default function Home() {
                           <span className="font-medium text-gray-800">{result.business.name}</span>
                         </td>
                         <td className="px-3 py-3 text-center text-gray-600">{result.base}</td>
-                        <td className="px-3 py-3 text-center text-indigo-600 font-medium">
+                        <td className="px-3 py-3 text-center text-teal-600 font-medium">
                           {result.eventBonus > 0 ? `+${result.eventBonus}` : '—'}
                         </td>
                         <td className="px-3 py-3 text-center text-purple-600 font-medium">
