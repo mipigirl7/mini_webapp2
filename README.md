@@ -1,36 +1,71 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🏫 Campus Partner Finder
 
-## Getting Started
+**대학 학생회를 위한 제휴처 적합도 분석 서비스**
 
-First, run the development server:
+> 학생회 대외협력국장으로 100개 제휴처를 직접 발굴한 경험을 기반으로,
+> 행사 유형·예산·타겟 특성에 따라 최적의 제휴 업종과 마케팅 전략을 추천합니다.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+🔗 **라이브 데모**: [campus-partner-finder.vercel.app](https://campus-partner-finder.vercel.app)
+
+---
+
+## 프로젝트 소개
+
+학생회가 축제, 체육대회, MT, 시험기간 등 행사를 준비할 때 어떤 업종과 제휴하면 효과적인지 데이터 기반으로 추천해주는 웹앱입니다.
+
+단순한 추천을 넘어 **점수 계산 과정을 투명하게 공개**하는 의사결정 모델을 설계했습니다.
+
+### 적합도 계산 모델
+
+```
+적합도 = 기본점수 (38~50) + 행사 가중치 (0~25) + 타겟 가중치 (0~15) + 예산 적합도 (0~10)
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+각 업종별로 행사 유형·타겟·예산에 따라 가중치를 부여해 최종 점수를 산출합니다.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 주요 기능
 
-## Learn More
+- **행사 조건 입력**: 행사 유형(축제/체육대회/MT/시험기간), 예산(3단계), 타겟(신입생/재학생/여학생) 선택
+- **Top 3 추천**: 조건에 맞는 제휴 업종 상위 3개 추천
+- **점수 계산 과정 공개**: 기본점수 + 각 가중치 = 합계를 카드별로 시각화
+- **추천 전략 제공**: 업종별 구체적인 마케팅 전략 제안
+- **전체 분석 테이블**: 12개 업종 전체 점수 비교 가능
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 기술 스택
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+| 항목 | 내용 |
+|------|------|
+| Framework | Next.js 16 (App Router) |
+| Language | TypeScript |
+| Styling | Tailwind CSS v4 |
+| Deployment | Vercel |
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 로컬 실행
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+# 의존성 설치
+npm install
+
+# 개발 서버 실행
+npm run dev
+```
+
+브라우저에서 [http://localhost:3000](http://localhost:3000) 접속
+
+---
+
+## 포트폴리오 설명
+
+> 학생회 대외협력국장으로 제휴처 100곳을 직접 발굴한 경험을 기반으로,
+> 행사 유형·예산·타겟 특성에 따라 적합한 제휴 업종과 마케팅 전략을 추천하는
+> 의사결정 모델을 설계하고 웹앱으로 구현했다.
+
+---
+
+*함다연 포트폴리오 프로젝트*
